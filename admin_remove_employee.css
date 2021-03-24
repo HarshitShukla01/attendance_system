@@ -1,0 +1,143 @@
+form{
+	font-size: 20px;
+}
+body{
+	font-family: 'Poppins', sans-serif;
+	
+    background-image:url("https://img.freepik.com/free-vector/3d-perspective-style-diamond-shape-white-background_1017-27556.jpg?size=626&ext=jpg");
+}
+p{
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.1em;
+	font-weight: 300;
+	
+	color: #ec801a;
+}
+a,
+a:hover,
+a:focus{
+	color: inherit;
+	text-decoration: none;
+	transition: all 0.3s;
+}
+
+/* Side Bar*/
+
+
+
+#sidebar.active {
+    margin-left: -250px;
+}
+.wrapper{
+
+	display: flex;
+	text-decoration: none;
+	transition: all 0.3s;
+}
+
+#sidebar{
+	min-width: 250px;
+	max-width: 250px;
+	background:#343434;
+    height: 100%;
+	color: rgb(217, 226, 235);
+	transition: all 0.3s;
+
+}
+
+#sidebar center {
+     padding-top: 50px; 
+     padding-bottom: 50px;
+
+}
+.navbar {
+    background-color: transparent;
+    background: transparent;
+    border-color: transparent;
+ }
+ 
+ .navbar li { color: #000 } 
+  #sidebar ul.components{
+	padding:10px 0;
+	
+}
+
+#sidebar ul p{
+	color: rgb(81, 82, 83);
+	padding: 10px;
+}
+
+#sidebar ul li a{
+	padding: 10px;
+	font-size: 1.1em;
+	display: block;
+}
+
+#sidebar ul li a:hover{
+	color: #02060f;
+	background: rgb(82, 80, 80);
+}
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+	color: rgb(223, 235, 235);
+	background: #343434;
+}
+
+a[data-toggle="collapse"]{
+	position: relative;
+}
+
+.dropdown-toggle::after{
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 20%;
+	transform: translateY(-80%);
+}
+.dropdown-toggle1::after{
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 20%;
+	transform: translateY(-50%);
+}
+ul ul a{
+	font-size: 0.9em !important;
+	padding-left: 50px !important;
+	background: #2d62cc;
+}
+
+#content{
+	width: 100%;
+	padding: 10px;
+	min-height: 70vh;
+	transition: all 0.3s;
+}
+
+#sidebar center img{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.vertical-left {
+    background-color:rgb(23, 65, 119);
+	margin-top: 4rem;
+	margin-bottom: 5.7rem;
+  
+    
+  }
+ 
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+

@@ -1,0 +1,86 @@
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));*/
+main{
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(to right top,#65dfc9,#6cdbeb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.glass{
+    background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+    border-radius: 2rem;
+    display: inline-flex;
+    height: 600px;
+}
+.dashboard{
+    width: 70%;
+    margin-top: 0.5rem;
+    border-radius: 2rem;
+    background-color: blue;
+    margin-bottom: 0.5rem;
+}
+.dashboard img{
+    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
+}
+.loginform{
+    border-radius: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 35%;
+}
+.logo{
+   /* margin-top: 2%;*/
+    text-align: center;
+}
+.loginform img{
+   
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+form{
+    margin-top: 15%;
+}
+.button-class{
+    margin-top: 15%;
+    text-align: center;
+}
+.button-class button{
+    padding: 5% 15%;
+    font-size: 15px;
+}
+
+@media(max-width: 530px){
+    .dashboard{
+        display: none;
+    }
+    .glass{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .loginform{
+      margin: 2% auto;
+      width: 85%;
+    }
+}
+@media(max-width: 330px){
+    .glass{
+        padding:0;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    .loginform{
+        margin: 0;
+      width: 100%;
+    }
+}

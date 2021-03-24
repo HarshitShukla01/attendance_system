@@ -1,0 +1,149 @@
+ *{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: #9fa7b8a3;
+}
+.data{
+    
+    height: 100vh;
+    margin-left: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+label{
+
+    line-height: 80px;
+    font-size: 30px;
+    color: orange;
+    font-weight: 200;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.side-menu{
+    position: fixed;
+    background:
+linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+background-color: #131313;
+background-size: 20px 20px;
+    width: 250px;
+    height: 100%;
+}
+.side-menu center img,#collapsibleNavbar center img{
+    height: 120px;
+    background-color: white;
+    width: 120px;
+    border-radius: 50%;
+    margin-top: 30px;
+    border: 3px solid white;
+}
+.side-menu center h3,#collapsibleNavbar center h3{
+    color: #18e7de;
+}
+.side-menu a{
+	display: block;
+    line-height: 60px;
+    transition: 0.5s;
+}
+.side-menu span{
+    font-size: 20px;
+    margin-left: 10px;
+    color: white;
+}
+.side-menu a:hover{
+    background: rgb(78 11 239);
+    padding-left: 30px;
+}
+.side-menu i{
+    font-size: 20px;
+    margin-left: 20px;
+    color: white;
+}
+.navbar-toggler{
+	float:right;
+}
+#collapsibleNavbar{
+	margin-top: 40px;
+    line-height: 40px;
+    font-size: 20px;
+}
+#collapsibleNavbar span{
+    margin-left: 20px;
+}
+#collapsibleNavbar a i{
+    width: 15px;
+}
+#collapsibleNavbar a{
+	color: #bad103;
+}
+.navbar-nav{
+	margin-top: 30px;
+}
+#collapsibleNavbar a:hover{
+    color: orange;
+    padding-left: 20px;
+}
+.navbar{
+	display: none;
+}
+.navbar-brand {
+    padding: 0;
+}
+.navbar-brand img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+.side-menu center h5{
+	color: #c0951a;
+}
+#collapsibleNavbar center h5{
+	color: white;
+}
+#edit-profile-modal h5,#manage-password-modal h5,#leave-application-modal h5{
+    color: #80360b;
+}
+.data .card-deck{
+    position: relative;
+    width: 95%;
+    margin-left: 3%;
+}
+#card_piechart{
+    background-color: transparent;
+}
+.card{
+
+}
+@media (max-width:767px){
+    
+    .data{
+       margin-left: 0px;
+    }
+    .navbar{
+	display: block;
+    }
+ .side-menu {
+    	display: none;
+    }
+    #col_piechart{
+        margin-top: 30px;
+    }
+}
+@media (max-width:337px){
+#second_col_big{
+        padding:0px;
+    }
+    .card h5{
+        font-size: 85%;
+    }
+}
+
