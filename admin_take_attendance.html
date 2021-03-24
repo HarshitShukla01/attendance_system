@@ -135,7 +135,7 @@
 
               <input class="form-control" type="date" name="date"
               style="width: 60%; margin-bottom: 20px;">
-              <button id="table_create_Button" type="button" class="btn btn-primary btn-block">GENRATE TABLE</button>
+              <button id="table_create_Button" type="button" class="btn btn-primary btn-block">START ATTENDANCE</button>
               <button id="table_update_Button" type="button" class="btn btn-primary btn-block">END TODAY'S ATTENDANCE</button>
             </div>
           </div>
@@ -154,6 +154,32 @@
     $('#sidebar').toggleClass('active');
     });
     });
+    document.addEventListener("DOMContentLoaded", event => {
+  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+  Instascan.Camera.getCameras().then(function (cameras) {
+  if (cameras.length > 0) {
+  scanner.start(cameras[0]);
+  }
+  else{
+  alert("no camera found");}
+  }).catch(function(e)
+  {
+  console.error(e);
+  });
+  
+  scanner.addListener('scan', content => {
+  document.getElementById("text").value=content;
+  });
+  
+  });
+  document.getElementById("table_create_Button").onclick = function() {
+    this.disabled = true;
+    document.getElementById("add_button").disabled=false;
+    }
+    document.getElementById("table_update_Button").onclick = function() {
+    document.getElementById("table_create_Button").disabled = false;
+    document.getElementById("add_button").disabled=true;
+    }
     
     </script>
   </body>
