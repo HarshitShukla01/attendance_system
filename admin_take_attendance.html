@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <link rel="stylesheet" href="admin_take_attendance.css">
     <script src="admin_take_attendance.js"></script>
   </head>
@@ -154,24 +157,24 @@
     $('#sidebar').toggleClass('active');
     });
     });
-    document.addEventListener("DOMContentLoaded", event => {
-  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-  Instascan.Camera.getCameras().then(function (cameras) {
-  if (cameras.length > 0) {
-  scanner.start(cameras[0]);
-  }
-  else{
-  alert("no camera found");}
-  }).catch(function(e)
-  {
-  console.error(e);
-  });
-  
-  scanner.addListener('scan', content => {
-  document.getElementById("text").value=content;
-  });
-  
-  });
+     document.addEventListener("DOMContentLoaded", event => {
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        }
+        else{
+        alert("no camera found");}
+      }).catch(function(e)
+      {
+          console.error(e);
+      });
+    
+      scanner.addListener('scan', content => {
+        document.getElementById("text").value=content;
+      });
+    
+    });
   document.getElementById("table_create_Button").onclick = function() {
     this.disabled = true;
     document.getElementById("add_button").disabled=false;

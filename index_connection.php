@@ -16,6 +16,7 @@ if(isset($_POST['btn-login'])){
   if(empty($name) || empty($password) || empty($designation1))
   {
     echo "<script>alert('Please fill the Details..');</script>";
+    echo "<script> window.location.assign('index.html'); </script>";
   }
   else
   {
@@ -33,8 +34,10 @@ if(isset($_POST['btn-login'])){
     }
     else{      
       echo "<script>alert('Your credentials are Wrong');</script>";
+      echo "<script> window.location.assign('index.html'); </script>";
     }
   }
+
 }
 
 
