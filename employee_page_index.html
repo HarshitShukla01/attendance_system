@@ -151,25 +151,25 @@
 					</div>
 					
 					<!-- Modal body -->
-					<form style="width: 85%; margin: 0 auto;">
+					<form action="employee_update_password.php" method="POST" style="width: 85%; margin: 0 auto; ">
 						<div class="form-group" style="margin-top: 5%;" >
 							<h5>Current Password</h5>
-							<input type="password" class="form-control" placeholder="Current Password">
+							<input type="password" class="form-control" name="current_password" placeholder="Current Password">
 						</div>
 						<div class="form-group" >
 							<h5>New Password</h5>
-							<input type="password" class="form-control" placeholder="New Password">
+							<input type="password" class="form-control" placeholder="New Password" name="new_password">
 						</div>
 						<div class="form-group" >
 							<h5>Confirm New Password</h5>
-							<input type="password" class="form-control" placeholder="Confirm New Password">
+							<input type="password" class="form-control" placeholder="Confirm New Password" name="confirm_new_password">
 						</div>
-						
+						<button type="submit" class="btn btn-primary" name="submit1">Submit</button>
 					</form>
 					
 					<!-- Modal footer -->
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 					</div>
 					
