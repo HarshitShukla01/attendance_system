@@ -110,7 +110,7 @@
 
           </div>
         </nav>
-        <form>  
+         <form action="admin_add_employee.php" method="POST">  
   <div class="container">  
   <center>  <h3 class="header">Registeration Form</h3> </center>  
   <hr>  
@@ -139,8 +139,7 @@ Gender :
 <div>
 <label>   
 Phone :  
-</label>  
-<input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>   
+</label>     
 <input type="text" name="phone" placeholder="phone no." size="10"/ required>  
 </div>
 <br> 
@@ -154,21 +153,21 @@ Phone :
 Current Address :  
 </label>
 <br>
-<textarea cols="80" rows="3" placeholder="Current Address" value="address" required>  
+<textarea cols="80" rows="3" name ="address" placeholder="Current Address" value="address" required>  
 </textarea>  
 </div>
 <br>
 <div>
  <label for="email">Email</label>  
- <input type="text" placeholder="Enter Email" name="email" required>  
+ <input type="email" placeholder="Enter Email" name="email" required>  
   </div>
   <br>
   <div>
     <label for="psw">Password</label>  
-    <input type="password" placeholder="Enter Password" name="psw" required>  
+    <input type="password" placeholder="Enter Password" name="password" required>  
   </div>
     <div>
-    <button type="submit" class="registerbtn btn btn-success">Register</button>   
+    <button type="submit" name ="submit" class="registerbtn btn btn-success">Register</button>   
     <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Create Card</button> 
     </div>
 </form> 
