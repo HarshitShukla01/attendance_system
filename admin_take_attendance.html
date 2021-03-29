@@ -126,10 +126,11 @@
             Take Attendance
             </h2>
             <hr>
+            <form action="admin_take_attendance.php" method="POST" >
             <div class="row">
               <div class="col-md-6" style="text-align: center;">
               <video id="preview" width="100%" ></video>
-              <button type="button" id="add_button" class="btn btn-info "style="padding-left: 30px;padding-right: 30px;margin-bottom: 50px;margin-top: 40px ;" disabled>Add+</button>
+              <button type="submit" name="add_att" class="btn btn-info "style="padding-left: 30px;padding-right: 30px;margin-bottom: 50px;margin-top: 40px ;" onclick="myfunc2()">Add+</button>
             </div>
             <div class="col-md-6">
               <label>Qr-code Value</label>
@@ -138,10 +139,13 @@
 
               <input class="form-control" type="date" name="date"
               style="width: 60%; margin-bottom: 20px;">
-              <button id="table_create_Button" type="button" class="btn btn-primary btn-block">START ATTENDANCE</button>
-              <button id="table_update_Button" type="button" class="btn btn-primary btn-block">END TODAY'S ATTENDANCE</button>
+              
+                <button type="submit"  class="btn btn-primary btn-block" name="btn-login" onclick="myfunc1()">START ATTENDANCE</button>
+              <!-- <button type="button" class="btn btn-primary btn-block" name="start_att">START ATTENDANCE</button> -->
+              <button  type="submit" class="btn btn-primary btn-block" name="end_att" onclick="myfunc3()">END TODAY'S ATTENDANCE</button>
             </div>
           </div>
+            </form>
         </div>
       </div>
         
@@ -175,13 +179,22 @@
       });
     
     });
-  document.getElementById("table_create_Button").onclick = function() {
-    this.disabled = true;
-    document.getElementById("add_button").disabled=false;
+    // document.getElementById("table_create_Button").onclick = function() {
+    // this.disabled = true;
+    // document.getElementById("add_button").disabled=false;
+    // }
+    // document.getElementById("table_update_Button").onclick = function() {
+    // document.getElementById("table_create_Button").disabled = false;
+    // document.getElementById("add_button").disabled=true;
+    // }
+    function myfunc1(){
+      alert('START');
     }
-    document.getElementById("table_update_Button").onclick = function() {
-    document.getElementById("table_create_Button").disabled = false;
-    document.getElementById("add_button").disabled=true;
+    function myfunc2(){
+      alert('ADD');
+    }
+    function myfunc3(){
+      alert('END');
     }
     
     </script>
