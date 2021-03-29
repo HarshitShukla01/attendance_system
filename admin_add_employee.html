@@ -171,22 +171,29 @@ Current Address :
     <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Create Card</button> 
     </div>
 </form> 
-          <!--MODAL-->
+         	          <!--MODAL-->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content" id="card">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="CardGenerator">Card Generator</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body" id = "printable">
+         <div><input id="qr-text" type="text" placeholder="Text to generate QR code"/></div>
+        
+        <div>
+            <button class="qr-btn" onclick="generateQRCode()">Create QR Code</button>
+	      </div>
+	      <p id="qr-result">This is deault QR code:</p>
+	  <canvas id="qr-code"></canvas>
+        
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" onclick="window.print();"class="btn btn-primary">Print</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
       </div>
     </div>
   </div>
@@ -197,12 +204,28 @@ Current Address :
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-    $(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
-    $('#sidebar').toggleClass('active');
-    });
-    });
-    </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+		<script>
+			/* JS comes here */
+			var qr;
+			(function() {
+                    qr = new QRious({
+                    element: document.getElementById('qr-code'),
+                    size: 200,
+                    value: 'https://studytonight.com'
+                });
+            })();
+            
+            function generateQRCode() {
+                var qrtext = document.getElementById("qr-text").value;
+                document.getElementById("qr-result").innerHTML = "QR code for " + qrtext +":";
+                alert(qrtext);
+                qr.set({
+                    foreground: 'black',
+                    size: 200,
+                    value: qrtext
+                });
+            }
+	  </script>
   </body>
 </html>
