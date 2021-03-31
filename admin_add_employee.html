@@ -110,7 +110,7 @@
 
           </div>
         </nav>
-         <form action="admin_add_employee.php" method="POST">  
+         <form class="form-group" action="admin_add_employee.php" method="POST" enctype="multipart/form-data" >  
   <div class="container">  
   <center>  <h3 class="header">Registeration Form</h3> </center>  
   <hr>  
@@ -118,14 +118,20 @@
   <label> Name </label>   
 <input type="text" name="name" placeholder= "Name" size="15" required />  
       <label> Employee ID </label>   
-<input type="text" name="ID" placeholder= "ID" size="10" required /> 
+<input type="text" name="ID" placeholder= "ID" size="5" required /> 
 </div>
 <br>
+<div>
+	<label for="avatar">Choose a profile picture:</label>
+
+<input type="file" id="avatar" name="avatar" value=""accept="image/png, image/jpeg" />
+   </div>
+   <br>
 <div>  
 <label for="dob">Date of Birth:</label>
-<input type="date" id="dob" name="dob"> 
+<input type="date" id="dob" name="dob" required /> 
 <label for="doj">Date of Joining:</label>
-<input type="date" id="doj" name="doj"> 
+<input type="date" id="doj" name="doj" required /> 
 </div> 
 <br> 
 <div>  
@@ -140,12 +146,13 @@ Gender :
 <label>   
 Phone :  
 </label>     
-<input type="text" name="phone" placeholder="phone no." size="10"/ required>  
+<input type="tel" name="phone" placeholder="phone no." pattern="[0-9]{10}" required />  
 </div>
 <br> 
 <div>
   <label>Designation :</label>
-  <input type = "text" name = "designation" placeholder="Designation" size="10"/ required>
+  <input type="radio" value="Employee" name="designation" checked > Employee   
+  <input type="radio" value="Employee" name="designation"> Admin    
 </div>
     <br>
 <div>
