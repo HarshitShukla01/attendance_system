@@ -1,3 +1,39 @@
+<?php
+$con = mysqli_connect("localhost", "root", "", "attendance");
+$sql_query="SELECT * FROM employee_details where emp_id ='12xyz'";
+$r1=mysqli_query($con, $sql_query);
+$id_use="";
+$name_use="";
+$email_use="";
+$dseg_use="";
+$phone_use="";
+$address_use="";
+$dob_use="";
+$doj_use="";
+$gender_use="";
+$total_att="";
+$present_att="5";
+$absent_att="5";
+$leave_att="7";
+while($row = mysqli_fetch_array($r1)){
+  $id_use=$row['emp_id'];
+  $name_use=$row['emp_name'];
+  $email_use=$row['emp_email'];
+  $dseg_use=$row['emp_designation'];
+  $phone_use=$row['emp_phone'];
+  $address_use=$row['emp_address'];
+  $dob_use=$row['emp_dob'];
+  $doj_use=$row['emp_dateofjoining'];
+  $gender_use=$row['emp_gender'];
+  $total_att=$row['total_workingdays'];
+  $present_att=$row['total_present'];
+  $absent_att=$row['total_absent'];
+  $leave_att=$row['total_leave'];
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,8 +68,8 @@
            
             <img src="emp-image.jpg">
             <br><br>
-           <h3>Employee Name</h3>
-           <h5>Employee id</h5>
+           <h3><?php echo $id_use ?></h3>
+           <h5><?php echo $name_use ?></h5>
           
           </center>
         
@@ -47,7 +83,7 @@
             <ul class="collapse list-unstyled" id="homeSubmenu">
               <!--Profile Information -->
               <li>
-                <a href="admin_page_index.html"><i class="fa fa-id-badge" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Profile Information</a>
+                <a href="admin_page_index1.php"><i class="fa fa-id-badge" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Profile Information</a>
               </li>
               <!-- change password section -->
               <li>
@@ -67,11 +103,11 @@
             <ul class="collapse list-unstyled" id="pageSubmenu">
               <!--Add Employee-->
               <li>
-                <a href="admin_add_employee.html"><i class="fa fa-user-plus" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Add</a>
+                <a href="admin_add_employee1.php"><i class="fa fa-user-plus" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Add</a>
               </li>
               <!--Remove Employee-->
               <li>
-                <a href="admin_remove_employee.html"><i class="fa fa-minus-square" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Remove</a>
+                <a href="admin_remove_employee1.php"><i class="fa fa-minus-square" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Remove</a>
               </li>
             </ul>
             <!--Attendance-->
@@ -80,18 +116,18 @@
               <ul class="collapse list-unstyled" id="pageSubmenu1">
                 <!--Take attendance-->
                 <li>
-                  <a href="admin_take_attendance.html"><i class="fa fa-plus" style="font-size:18px;color:rgb(20, 45, 78)"></i>   Take Attendance</a>
+                  <a href="admin_take_attendance1.php"><i class="fa fa-plus" style="font-size:18px;color:rgb(20, 45, 78)"></i>   Take Attendance</a>
                 </li>
                 <!--View attendance-->
                 <li>
-                  <a href="admin_view_attendance.html"><i class="fa fa-eye" style="font-size:18px;color:rgb(20, 45, 78)"></i>   View Attendance</a>
+                  <a href="admin_view_attendance1.php"><i class="fa fa-eye" style="font-size:18px;color:rgb(20, 45, 78)"></i>   View Attendance</a>
                 </li>
                 
               </ul>
               <ul class="vertical-left">
                 <!--Sign Out-->
                 <li>
-                  <a href="index.html"><i style="font-size:18px" class="fa">&#xf011;</i>  Sign Out</a>
+                  <a href="index.php"><i style="font-size:18px" class="fa">&#xf011;</i>  Sign Out</a>
                 </li>
               </ul>
             </li>
@@ -146,48 +182,48 @@
                                           <div class="row">
                                             <div class="col-sm-3">
                                               <h6 class="mb-0">Full Name</h6>
-                                            </div><div class="col-sm-9 text-secondary"> Kenneth Valdez</div>
+                                            </div><div class="col-sm-9 text-secondary"> <?php echo $name_use ?></div>
                                           </div>
                                           <hr>
                                           <div class="row">
                                             <div class="col-sm-3">
                                               <h6 class="mb-0">Email</h6>
                                             </div>
-                                            <div class="col-sm-9 text-secondary"> fip@jukmuh.al</div>
+                                            <div class="col-sm-9 text-secondary"> <?php echo $email_use ?></div>
                                           </div>
                                           <hr><div class="row"><div class="col-sm-3">
                                             <h6 class="mb-0">Phone</h6>
                                           </div>
-                                          <div class="col-sm-9 text-secondary"> (239) 816-9029</div>
+                                          <div class="col-sm-9 text-secondary"> <?php echo $phone_use?></div>
                                         </div>
                                         
                                       <hr>
                                       <div class="row">
                                         <div class="col-sm-3">
-                                          <h6 class="mb-0">Address</h6></div><div class="col-sm-9 text-secondary"> Bay Area, San Francisco, CA</div>
+                                          <h6 class="mb-0">Address</h6></div><div class="col-sm-9 text-secondary"> <?php echo $address_use ?></div>
                                         </div>
                                         <hr><div class="row"><div class="col-sm-3">
                                           <h6 class="mb-0">Date of Birth</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary"> 03-04-1781</div>
+                                        <div class="col-sm-9 text-secondary"> <?php echo $dob_use ?></div>
                                       </div>
 
                                       <hr><div class="row"><div class="col-sm-3">
                                         <h6 class="mb-0">Gender</h6>
                                       </div>
-                                      <div class="col-sm-9 text-secondary">Female</div>
+                                      <div class="col-sm-9 text-secondary"><?php echo $gender_use ?></div>
                                     </div>
 
                                     <hr><div class="row"><div class="col-sm-3">
                                       <h6 class="mb-0">Designation</h6>
                                     </div>
-                                    <div class="col-sm-9 text-secondary"> Thrilling Author</div>
+                                    <div class="col-sm-9 text-secondary"> <?php echo $dseg_use ?></div>
                                   </div>
 
                                   <hr><div class="row"><div class="col-sm-3">
                                     <h6 class="mb-0">Date of Joining</h6>
                                   </div>
-                                  <div class="col-sm-9 text-secondary"> 22-04-2012</div>
+                                  <div class="col-sm-9 text-secondary"> <?php echo $doj_use ?></div>
                                 </div>
                                       </div>
                                     </div>
