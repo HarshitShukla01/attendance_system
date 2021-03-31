@@ -26,10 +26,10 @@ if(isset($_POST['btn-login'])){
     if($count==1)
     {
       if($designation1=='employee'){
-       echo "<script> window.location.assign('employee_page_index.php'); </script>";
+       echo "<script> window.location.assign('employee_page_index1.php'); </script>";
       }
       else if($designation1=='admin'){
-        echo "<script> window.location.assign('admin_page_index.html'); </script>";
+        echo "<script> window.location.assign('admin_page_index1.php'); </script>";
        }
     }
     else{      

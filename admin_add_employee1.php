@@ -1,3 +1,16 @@
+<?php
+$con = mysqli_connect("localhost", "root", "", "attendance");
+$sql_query="SELECT * FROM employee_details where emp_id ='11abc'";
+$r1=mysqli_query($con, $sql_query);
+$id_use="";
+$name_use="";
+while($row = mysqli_fetch_array($r1)){
+  $id_use=$row['emp_id'];
+  $name_use=$row['emp_name'];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,8 +40,8 @@
            
             <img src="emp-image.jpg">
             <br><br>
-           <h3>Employee Name</h3>
-           <h5>Employee id</h5>
+           <h3><?php echo $id_use ?></h3>
+           <h5><?php echo $name_use ?></h5>
           
           </center>
         
@@ -42,7 +55,7 @@
             <ul class="collapse list-unstyled" id="homeSubmenu">
               <!--Profile Information -->
               <li>
-                <a href="admin_page_index.html"><i class="fa fa-id-badge" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Profile Information</a>
+                <a href="admin_page_index1.php"><i class="fa fa-id-badge" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Profile Information</a>
               </li>
               <!-- change password section -->
               <li>
@@ -62,11 +75,11 @@
             <ul class="collapse list-unstyled" id="pageSubmenu">
               <!--Add Employee-->
               <li>
-                <a href="admin_add_employee.html"><i class="fa fa-user-plus" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Add</a>
+                <a href="admin_add_employee1.php"><i class="fa fa-user-plus" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Add</a>
               </li>
               <!--Remove Employee-->
               <li>
-                <a href="admin_remove_employee.html"><i class="fa fa-minus-square" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Remove</a>
+                <a href="admin_remove_employee1.php"><i class="fa fa-minus-square" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Remove</a>
               </li>
             </ul>
             <!--Attendance-->
@@ -75,18 +88,18 @@
               <ul class="collapse list-unstyled" id="pageSubmenu1">
                 <!--Take attendance-->
                 <li>
-                  <a href="admin_take_attendance.html"><i class="fa fa-plus" style="font-size:18px;color:rgb(20, 45, 78)"></i>   Take Attendance</a>
+                  <a href="admin_take_attendance1.php"><i class="fa fa-plus" style="font-size:18px;color:rgb(20, 45, 78)"></i>   Take Attendance</a>
                 </li>
                 <!--View attendance-->
                 <li>
-                  <a href="admin_view_attendance.html"><i class="fa fa-eye" style="font-size:18px;color:rgb(20, 45, 78)"></i>   View Attendance</a>
+                  <a href="admin_view_attendance1.php"><i class="fa fa-eye" style="font-size:18px;color:rgb(20, 45, 78)"></i>   View Attendance</a>
                 </li>
                 
               </ul>
               <ul class="vertical-left">
                 <!--Sign Out-->
                 <li>
-                  <a href="index.html"><i style="font-size:18px" class="fa">&#xf011;</i>  Sign Out</a>
+                  <a href="index.php"><i style="font-size:18px" class="fa">&#xf011;</i>  Sign Out</a>
                 </li>
               </ul>
             </li>
