@@ -5,6 +5,7 @@ $password="";
 $db="attendance";
 
 $con = mysqli_connect($host,$user,$password,$db);
+$msg="";
 
 if(isset($_POST['submit'])){
 	$name=$_POST['name'];
@@ -17,6 +18,9 @@ if(isset($_POST['submit'])){
 	$email=$_POST['email'];
   $password=$_POST['password'];
  	$designation=$_POST['designation'];
+  $filename = $_FILES["avatar"]["name"];
+  $tempname = $_FILES["avatar"]["tmp_name"];    
+        $folder = "attimage/".$filename;
 
  		$name = mysqli_real_escape_string($con, $name);  
   $id = mysqli_real_escape_string($con, $id);
@@ -47,27 +51,11 @@ if(isset($_POST['submit'])){
   else{
 
 
- 	$query = "INSERT INTO employee_details(emp_id, emp_name, emp_password,emp_designation,emp_email,emp_dob,emp_address,emp_dateofjoining,total_present,total_absent,total_leave,total_workingdays,emp_gender) 
-  			  VALUES('$id', '$name', '$password','$designation','$email','$dob','$address','$doj','0','0','0','0','$gender')";
+ 	$query = "INSERT INTO employee_details(emp_id, emp_name,emp_imagelink,emp_password,emp_designation,emp_email,emp_dob,emp_address,emp_dateofjoining,total_present,total_absent,total_leave,total_workingdays,emp_gender) 
+  			  VALUES('$id', '$name','$filename', '$password','$designation','$email','$dob','$address','$doj','0','0','0','0','$gender')";
   	mysqli_query($con, $query);
+          move_uploaded_file($tempname, $folder) 
+    echo "<script>alert('Registered'); </script>";
+    echo "<script> window.location.assign('admin_add_employee.html'); </script>";
   }}
   ?>
-<!DOCTYPE html>
-<html>
-  
-  <title>Registration success</title>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="#">
-  </head>
-  <body>
-    <h1><center>Registration Success</center></h1>
-    <center><a href="admin_add_employee.html">OK</a></center>
-  </body>
-  </html>
