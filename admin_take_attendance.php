@@ -13,7 +13,7 @@ if(isset($_POST['btn-login']))
     $r_chk=mysqli_query($con, $sql_chk);
     $count_chk = mysqli_num_rows($r_chk);
     if($count_chk>0){
-        //echo "<script>alert('TABLE ALREADY CREATED');</script>";
+        // echo "<script>alert('TABLE ALREADY CREATED');</script>";
     }
     else{ 
     $sql1="CREATE TABLE `".$date."`(
@@ -24,7 +24,7 @@ if(isset($_POST['btn-login']))
 
     $sql2="INSERT INTO `".$date."`(emp_id) SELECT emp_id FROM employee_details ";  
     $r2=mysqli_query($con, $sql2);
-    $sql3 = "UPDATE `".$date."` SET status_check= 'ab' ";
+    $sql3 = "UPDATE `".$date."` SET status_check= 'absent' ";
     $r3=mysqli_query($con, $sql3);
     }
     header("location:javascript://history.go(-1)");
@@ -42,7 +42,7 @@ if(isset($_POST['add_att']))
     $c4 = mysqli_num_rows($r4);
     if($c4==1)
     {
-        $sql5 = "UPDATE `".$date."` SET status_check= 'pr' WHERE emp_id='$text' ";
+        $sql5 = "UPDATE `".$date."` SET status_check= 'present' WHERE emp_id='$text' ";
         $r5=mysqli_query($con, $sql5);
     }
     else
@@ -59,14 +59,14 @@ if(isset($_POST['end_att']))
     $date=$_POST['date'];
     $date = mysqli_real_escape_string($con, $date); 
     echo "<script>alert('End');</script>";
-    $sql6="SELECT emp_id from `".$date."` where status_check = 'pr'";
+    $sql6="SELECT emp_id from `".$date."` where status_check = 'present'";
     $r6=mysqli_query($con,$sql6);
     while($row = mysqli_fetch_array($r6))
     {
         $sql7 = "UPDATE `employee_details` SET total_present=total_present+1, total_workingdays=total_workingdays+1 WHERE emp_id='".$row['emp_id']."' ";
         $r7=mysqli_query($con, $sql7);
     }
-    $sql8="SELECT emp_id from `".$date."` where status_check = 'ab'";
+    $sql8="SELECT emp_id from `".$date."` where status_check = 'absent'";
     $r8=mysqli_query($con,$sql8);
     while($row = mysqli_fetch_array($r8))
     {
