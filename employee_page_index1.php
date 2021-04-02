@@ -218,34 +218,35 @@ while($row = mysqli_fetch_array($r1)){
 					</div>
 					
 					<!-- Modal body -->
-					<form style="width: 85%; margin: 0 auto;">
+					<form action="leave_application.php" method="POST" style="width: 85%; margin: 0 auto;">
 						<div class="form-group" style="margin-top: 5%;" >
 							<h5>Enter Name</h5>
-							<input type="text" class="form-control" placeholder="Name">
+							<input type="text" class="form-control" value="<?php echo $name_use ?>" name="name" >
 						</div>
 						<div class="form-group" >
 							<h5>Enter Employee ID</h5>
-							<input type="text" class="form-control" placeholder="New Password">
+							<input type="text" class="form-control"  name="employee_id" value="<?php echo $id_use ?>" >
 						</div>
 						<div class="form-group" >
 							<h5>From</h5>
-							<input type="date" class="form-control" placeholder="Confirm New Password">
+							<input type="date" class="form-control"  name="from" required>
 						</div>
 						<div class="form-group" >
 							<h5>To</h5>
-							<input type="date" class="form-control" placeholder="Confirm New Password">
+							<input type="date" class="form-control" name="to" required>
 						</div>
 						<div class="form-group">
 							<h5>Reason (in short)</h5>
-							<input type="text" class="form-control" placeholder="Name">
+							<input type="text" class="form-control" name="reason" required>
 						</div>
-					</form>
+					
 					
 					<!-- Modal footer -->
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary">Submit</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-					</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary" name="submit">submit</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal" name="close">close</button>
+						</div>
+					</form>
 					
 				</div>
 			</div>
