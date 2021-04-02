@@ -11,6 +11,10 @@ while($row = mysqli_fetch_array($r1)){
 ?>
 
 
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,35 +25,43 @@ while($row = mysqli_fetch_array($r1)){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-    <link rel="stylesheet" href="admin_remove_employee.css">
-    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <link rel="stylesheet" href="admin_notification.css">
+    <script src="admin_notification.js"></script>
   </head>
   <body>
-    
+    <!--      <div class="vd_title-section clearfix">
+      <h1>User Profile Form</h1>
+    </div>
+    -->
     <div class="wrapper">
       
       <nav id="sidebar">
         
+        
+        
         <!--<div class="sidebar-header">
           
         </div>-->
-        <!--defines for centre image to add/upload 
+        <!--defines for centre image to add/upload
         Name of the employee
-      id of the employee-->
+        id of the employee-->
         <center>
-           
-            <img src="emp-image.jpg">
-            <br><br>
-           <h3><?php echo $id_use ?></h3>
-           <h5><?php echo $name_use ?></h5>
-          
-          </center>
+        
+        <img src="emp-image.jpg">
+        <br><br>
+        <h3><?php echo $id_use ?></h3>
+        <h5><?php echo $id_use ?></h5>
+        
+        </center>
         
         <ul class="lisst-unstyled components" style="
           margin-bottom: relative;
           ">
           
-         <!--Profile drop down menu with class active showing is default for every page like HOME PAGE-->
+          <!--Profile drop down menu with class active showing is default for every page like HOME PAGE-->
           <li class="active">
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="padding-top: 1px"><i class="fa fa-user" style="font-size:18px;color: rgb(34, 130, 209)"></i>    Profile</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -67,7 +79,7 @@ while($row = mysqli_fetch_array($r1)){
           <!--Notification-->
           <li>
             
-            <a href="admin_notification.php" ><i class="fa fa-bell" style="font-size:18px;color:rgb(34, 130, 209)"></i>   Notification</a>
+            <a href="#" ><i class="fa fa-bell" style="font-size:18px;color:rgb(34, 130, 209)"></i>   Notification</a>
           </li>
           <!--Employee-->
           <li>
@@ -123,21 +135,62 @@ while($row = mysqli_fetch_array($r1)){
             
           </div>
         </nav>
+        <!--main page start-->
+           <div class="notification_body">
+             <div class="container" style="text-align: center;">
+               <h1>NOTIFICATION</h1>
+             </div>
+             <div class="container" style="text-align: center;  padding-right: 0px; padding-left: 0px; margin-top: 20px;">
+               <?php
+                  $con = mysqli_connect("localhost", "root", "", "attendance");
+                  //leave_application
+                  $sql_query="SELECT * FROM leave_application where status_val = 'none'";
+                  $r1=mysqli_query($con, $sql_query);
+                  $leave_id="";
+                  $leave_name="";
+                  $leave_from="";
+                  $leave_to="";
+                  $leave_reason="";?>
+                  <table style="width:100%; background-color: lightblue;">
+                     <tr>
+                      <th style="font-size: 20px;">Name</th>
+                      <th style="font-size: 20px;">Emp Id</th>
+                      <th style="font-size: 20px;">From date</th>
+                      <th style="font-size: 20px;">To date</th>
+                      <th style="font-size: 20px;">Reason</th>
+                      <th style="font-size: 20px;">Selection</th>
+                    </tr>
+                  <?php
+                  while($row1 = mysqli_fetch_array($r1)){
+                    $leave_id=$row1['emp_id'];
+                    $leave_name=$row1['emp_name'];
+                    $leave_from=$row1['from_date'];
+                    $leave_to=$row1['to_date'];
+                    $leave_reason=$row1['reason'];
+                    ?>
+                     <tr>
+                       <td><?php echo $leave_name?></td>
+                       <td><?php echo $leave_id ?></td>
+                       <td><?php echo $leave_from?></td>
+                       <td><?php echo $leave_to?></td>
+                       <td><?php echo $leave_reason?></td>
+                       <td >
+                        
+                         <button class=" bo-rad form-control col-6 bg-success" style="float: left; font-weight: bold;color:white;">&#10004;</button>
+                         <button class="bo-rad form-control col-6 bg-danger" style="float: right; color:white;">&#10008;</button>
+                        
+                       </td>
+                     </tr>
+                     <?php
+                  }
+                ?>
+              </table>
+             </div>
+           </div>
         
-      <form action="admin_remove_employee.php" method="POST">
-      <div class="container">
-        <center>  <h1 class="header">Remove Employee</h1> </center> 
-        <hr>
-        <div>
-          <center><label>Enter Employee ID :</label>
-            <input type="text" name="ID" placeholder= "ID" size="10" required /> </center>
-        </div>
-        <br>
-        <center><button name="submit" type="submit" class="btn btn-danger">Remove</button></center>
-
+        <!--main page end-->
       </div>
-    </form>
-  </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
