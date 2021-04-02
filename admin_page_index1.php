@@ -95,7 +95,7 @@ while($row = mysqli_fetch_array($r1)){
           <!--Notification-->
           <li>
             
-            <a href="#" ><i class="fa fa-bell" style="font-size:18px;color:rgb(34, 130, 209)"></i>   Notification</a>
+            <a href="admin_notification.php" ><i class="fa fa-bell" style="font-size:18px;color:rgb(34, 130, 209)"></i>   Notification</a>
           </li>
           <!--Employee-->
           <li>
