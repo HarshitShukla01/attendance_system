@@ -40,7 +40,11 @@ while($row = mysqli_fetch_array($r1)){
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="employee_page_index.css">
+		<!-- <link rel="stylesheet" href="employee_page_index.css"> -->
+		<style type="text/css">
+			<?php include 'employee_page_index.css'; ?>
+			</style>
+		
 		<title>Document</title>
 	</head>
 	<body>
@@ -70,7 +74,7 @@ while($row = mysqli_fetch_array($r1)){
 						<a class="nav-link" data-toggle="modal" data-target="#notification-modal" style="cursor: pointer;"><i class="fa fa-envelope"></i><span>Notification</span></a>
 					</li>
 					<li class="nav-item">
-						<a href="demo1.html"><i class="fa fa-chevron-circle-right"></i><span>Log Out</span></a>
+						<a href="index.php"><i class="fa fa-chevron-circle-right"></i><span>Log Out</span></a>
 					</li>
 				</ul>
 			</div>
@@ -87,11 +91,11 @@ while($row = mysqli_fetch_array($r1)){
 			<a class="nav-link" data-toggle="modal" data-target="#manage-password-modal" style="cursor: pointer;"><i class="fa fa-unlock-alt"></i><span>Manage Password</span></a>
 			<a class="nav-link" data-toggle="modal" data-target="#leave-application-modal" style="cursor: pointer;"><i class="fa fa-leanpub"></i><span style="font-size: 18px;">Leave Application</span></a>
 			<a class="nav-link" data-toggle="modal" data-target="#notification-modal" style="cursor: pointer;"><i class="fa fa-envelope"></i><span>Notification</span></a>
-			<a href="index.html" style="margin-left: 18px;"><i class="fa fa-chevron-circle-right"></i><span>Log Out</span></a>
+			<a href="index.php" style="margin-left: 18px;"><i class="fa fa-chevron-circle-right"></i><span>Log Out</span></a>
 		</div>
 		<div class="data">
 			<div class="card-deck row" style="height: 100vh;">
-				<div class="col-lg" id="col_piechart" style="margin-bottom: 30px;">
+				<div class="col-lg" id="col_piechart" style="margin-bottom: 30px; margin-top: 30px;">
 					<div class="card" id="card_piechart">
 							<div id="card_piechart_inside"style="width: 100%; height: 80%;">
 								<canvas id="myChart" width="200" height="200" style="padding-bottom: 4px" >
@@ -99,18 +103,18 @@ while($row = mysqli_fetch_array($r1)){
 							</div>
 						</div>
 				</div>
-				<div class="col-lg" id="second_col_big" style="margin-bottom: 10px;">
+				<div class="col-lg" id="second_col_big" style="margin-bottom: 10px; margin-top: 30px;">
 					<div class="col-lg" style="margin-bottom: 30px;">
                         <div class="card row">
-						<div class="card-header">Attendance Log</div>
+						<div class="card-header" style="text-align: center;"><h4>PROFILE LOG</h4></div>
 						<div class="card-body">
 
-							<h5>Email = <?php echo $email_use ?></h5>
-							<h5>Phone = <?php echo $phone_use?></h5>
-							<h5>Adddress = <?php echo $address_use ?></h5>
-							<h5>Desgnation = <?php echo $dseg_use ?></h5>
-							<h5>Date of birth = <?php echo $dob_use ?></h5>
-							<h5>Date of Joining = <?php echo $doj_use ?></h5>
+							<h5>Email &#10148; <?php echo $email_use ?></h5>
+							<h5>Phone &#10148; <?php echo $phone_use?></h5>
+							<h5>Adddress &#10148; <?php echo $address_use ?></h5>
+							<h5>Desgnation &#10148; <?php echo $dseg_use ?></h5>
+							<h5>Date of birth &#10148; <?php echo $dob_use ?></h5>
+							<h5>Date of Joining &#10148; <?php echo $doj_use ?></h5>
 							<!-- <h5>Total absent = 3</h5>
 							<h5>Total leave = 4</h5>
 							<h5>Total attendance = 10</h5>
@@ -122,12 +126,12 @@ while($row = mysqli_fetch_array($r1)){
 					</div>
 					<div class="col-lg">
 						<div class="card row" style="background-color:green">
-							<div class="card-header">Attendance Log</div>
+							<div class="card-header" style="text-align: center;"><h4>ATTENDANCE LOG</h4></div>
 							<div class="card-body">
-								<h5>Total attendance = <?php echo $total_att?></h5>
-								<h5>Total present = <?php echo $present_att ?></h5>
-								<h5>Total absent = <?php echo $absent_att ?></h5>
-								<h5>Total leave = <?php echo $leave_att ?></h5>
+								<h5>Total attendance &#10148; <?php echo $total_att?></h5>
+								<h5>Total present &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&#10148; <?php echo $present_att ?></h5>
+								<h5>Total absent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10148; <?php echo $absent_att ?></h5>
+								<h5>Total leave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10148; <?php echo $leave_att ?></h5>
 							</div>
 						</div>
 					</div>
@@ -287,8 +291,8 @@ label: '# of Votes',
 data: [<?php echo $absent_att ?>, <?php echo $present_att?>, <?php echo $leave_att ?>],
 backgroundColor: [
 'red',
-'lightgreen',
-'lightblue'
+'rgb(0, 128, 0)',
+'#3CACAE'
 ],
 borderColor: [
 'rgba(255, 99, 132, 1)',
@@ -299,7 +303,15 @@ borderWidth: 0.5,
 hoverBorderWidth: 2.5
 }]
 },
-options: {}
+options: {
+	legend: {
+            display: true,
+            labels: {
+                fontColor: 'black',
+                fontSize: 15
+            }
+        }
+}
 });
 // end
     </script>
