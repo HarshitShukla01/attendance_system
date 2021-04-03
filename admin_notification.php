@@ -175,10 +175,10 @@ while($row = mysqli_fetch_array($r1)){
                        <td><?php echo $leave_to?></td>
                        <td><?php echo $leave_reason?></td>
                        <td >
-                        
-                         <button class=" bo-rad form-control col-6 bg-success" style="float: left; font-weight: bold;color:white;">&#10004;</button>
-                         <button class="bo-rad form-control col-6 bg-danger" style="float: right; color:white;">&#10008;</button>
-                        
+                       <!-- <form action="admin_take_attendance.php" method="POST" > -->
+                         <button class=" bo-rad form-control col-6 bg-success" name="accept" style="float: left; font-weight: bold;color:white;">&#10004;</button>
+                         <button class="bo-rad form-control col-6 bg-danger" name="deny" style="float: right; color:white;">&#10008;</button>
+                        <!-- </form> -->
                        </td>
                      </tr>
                      <?php
