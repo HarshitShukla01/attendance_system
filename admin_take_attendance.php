@@ -8,6 +8,9 @@ if(isset($_POST['btn-login']))
     
     // echo "<script>alert('START');</script>";
     $date=$_POST['date'];
+    $text=$_POST['text'];
+    // $accept=$_POST['accept'];
+    // $deny=$_POST['deny'];
     $date = mysqli_real_escape_string($con, $date); 
     $sql_chk="SELECT * FROM `".$date."`";
     $r_chk=mysqli_query($con, $sql_chk);
@@ -24,9 +27,26 @@ if(isset($_POST['btn-login']))
 
     $sql2="INSERT INTO `".$date."`(emp_id) SELECT emp_id FROM employee_details ";  
     $r2=mysqli_query($con, $sql2);
-    $sql3 = "UPDATE `".$date."` SET status_check= 'absent' ";
-    $r3=mysqli_query($con, $sql3);
+    $sql0="SELECT * from `leave_application` where status_val='accept'";
+    $r0=mysqli_query($con,$sql0);
+    while($row1 = mysqli_fetch_array($r0))
+    {
+        $from=$row1['from_date'];
+        $to=$row1['to_date'];
+        $f1= strtotime($from);
+        $t1 = strtotime($to);
+        $d1= strtotime($date);
+        if(($d1>=$f1)&&($d1<=$t1))
+        {
+            echo "<script>alert('Leave');</script>";
+            $sql00 = "UPDATE `".$date."` SET status_check= 'leave' WHERE emp_id='".$row1['emp_id']."'";
+            $r00=mysqli_query($con, $sql00);
+        }
+            $sql3 = "UPDATE `".$date."` SET status_check= 'absent' WHERE emp_id!='".$row1['emp_id']."'";
+            $r3=mysqli_query($con, $sql3);
+        
     }
+}
     header("location:javascript://history.go(-1)");
 }
 
@@ -72,6 +92,13 @@ if(isset($_POST['end_att']))
     {
         $sql9 = "UPDATE `employee_details` SET total_absent=total_absent+1, total_workingdays=total_workingdays+1 WHERE emp_id='".$row['emp_id']."' ";
         $r9=mysqli_query($con, $sql9);
+    }
+    $sql10="SELECT emp_id from `".$date."` where status_check = 'leave'";
+    $r10=mysqli_query($con,$sql10);
+    while($row = mysqli_fetch_array($r10))
+    {
+        $sql11 = "UPDATE `employee_details` SET total_leave=total_leave+1, total_workingdays=total_workingdays+1 WHERE emp_id='".$row['emp_id']."' ";
+        $r11=mysqli_query($con, $sql11);
     }
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
