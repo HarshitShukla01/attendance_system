@@ -9,10 +9,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+<!--     <link rel="stylesheet" href="index.css"> -->
+    <style type="text/css">
+      <?php include 'index.css'; ?>
+      </style>
   </head>
   <body>
+    <div class="spinner-wrapper">
+<div class="spinner"></div>
+</div>
     <main>
       <div class="container glass">
         <div class="dashboard">
@@ -20,11 +32,14 @@
             <img src="logo.jpg">
           </div> -->
           <!-- <div class="dash-background"> -->
-          <img src="dash-background.jpg">
+          <img src="dash-background1.jpg">
           <!-- </div> -->
         </div>
         <div class="loginform">
-          <div class="logo"><img src="logo.png"></div>
+          <div class="logo"><img src="logo.png">
+               <br>
+               <h4 style="font-family: 'Aref Ruqaa', serif;color: #660000;">ARCHER'S GROUP</h4>
+          </div>
           <div>
             <form action="index_connection.php" method="POST" >
               <div class="form-group">
@@ -54,5 +69,16 @@
         </div>
       </div>
     </main>
+    <script>
+$(document).ready(function() {
+//Preloader
+preloaderFadeOutTime = 6000;
+function hidePreloader() {
+var preloader = $('.spinner-wrapper');
+preloader.fadeOut(preloaderFadeOutTime);
+}
+hidePreloader();
+});
+</script>
   </body>
 </html>
