@@ -4,10 +4,13 @@ $sql_query="SELECT * FROM employee_details where emp_id ='11abc'";
 $r1=mysqli_query($con, $sql_query);
 $id_use="";
 $name_use="";
+$image_val="";
 while($row = mysqli_fetch_array($r1)){
   $id_use=$row['emp_id'];
   $name_use=$row['emp_name'];
+$image_val=$row['emp_imagelink'];
 }
+$image_use="attimages/".$image_val;
 ?>
 
 
@@ -50,7 +53,7 @@ while($row = mysqli_fetch_array($r1)){
         id of the employee-->
         <center>
         
-        <img src="emp-image.jpg">
+        <img src="<?php echo $image_use ?>" alt="$image_use ">
         <br><br>
         <h3><?php echo $id_use ?></h3>
         <h5><?php echo $id_use ?></h5>

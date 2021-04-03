@@ -1,6 +1,6 @@
 <?php
 $con = mysqli_connect("localhost", "root", "", "attendance");
-$sql_query="SELECT * FROM employee_details where emp_id ='12xyz'";
+$sql_query="SELECT * FROM employee_details where emp_id ='af'";
 $r1=mysqli_query($con, $sql_query);
 $id_use="";
 $name_use="";
@@ -14,6 +14,7 @@ $total_att="";
 $present_att="5";
 $absent_att="5";
 $leave_att="7";
+$image_val="";
 while($row = mysqli_fetch_array($r1)){
   $id_use=$row['emp_id'];
   $name_use=$row['emp_name'];
@@ -27,7 +28,9 @@ while($row = mysqli_fetch_array($r1)){
   $present_att=$row['total_present'];
   $absent_att=$row['total_absent'];
   $leave_att=$row['total_leave'];
+  $image_val=$row['emp_imagelink'];
 }
+$image_use="attimages/".$image_val;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +58,7 @@ while($row = mysqli_fetch_array($r1)){
 			</button>
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<center>
-				<img src="emp-image.jpg">
+				<img src="<?php echo $image_use ?>" alt="$image_use ">
 				<br><br>
 				<h3><?php echo $id_use ?></h3>
 				<h5><?php echo $name_use ?></h5>
@@ -81,7 +84,7 @@ while($row = mysqli_fetch_array($r1)){
 		</nav>
 		<div class="side-menu">
 			<center>
-			<img src="emp-image.jpg">
+			<img src="<?php echo $image_use ?>" alt="$image_use ">
 			<br><br>
 			<h3><?php echo $name_use ?></h3>
 			<h5><?php echo $id_use ?></h5>
