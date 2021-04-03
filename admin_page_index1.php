@@ -15,6 +15,7 @@ $total_att="";
 $present_att="5";
 $absent_att="5";
 $leave_att="7";
+$image_val="";
 while($row = mysqli_fetch_array($r1)){
   $id_use=$row['emp_id'];
   $name_use=$row['emp_name'];
@@ -29,7 +30,9 @@ while($row = mysqli_fetch_array($r1)){
   $present_att=$row['total_present'];
   $absent_att=$row['total_absent'];
   $leave_att=$row['total_leave'];
+$image_val=$row['emp_imagelink'];
 }
+$image_use="attimages/".$image_val;
 ?>
 
 
@@ -66,7 +69,7 @@ while($row = mysqli_fetch_array($r1)){
       id of the employee-->
         <center>
            
-            <img src="emp-image.jpg">
+            <img src="<?php echo $image_use ?>" alt="$image_use ">
             <br><br>
            <h3><?php echo $id_use ?></h3>
            <h5><?php echo $name_use ?></h5>
