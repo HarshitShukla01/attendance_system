@@ -68,7 +68,18 @@
           </div>
         </div>
       </div>
+      <div class="social-links">
+        <div class="social-photos">
+         <a href="https://www.instagram.com/" target="_blank"><img src="f1.jpg"></a> 
+        <a href="https://www.facebook.com/"target="_blank"><img src="f2.jpg"></a>
+        <a href="https://twitter.com/login"target="_blank"><img src="f3.jpg"></a>
+        <a href="https://in.pinterest.com/"target="_blank"><img src="f4.jpg"></a>
+        <a href="https://www.linkedin.com/"target="_blank"><img src="f5.jpg"></a>
+        </div>
+        
+      </div>
     </main>
+
     <script>
 $(document).ready(function() {
 //Preloader
