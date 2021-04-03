@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
  	$designation=$_POST['designation'];
   $filename = $_FILES["avatar"]["name"];
   $tempname = $_FILES["avatar"]["tmp_name"];    
-        $folder = "attimage/".$filename;
+        $folder = "attimages/".$filename;
 
  	$name = mysqli_real_escape_string($con, $name);  
   $id = mysqli_real_escape_string($con, $id);
