@@ -25,7 +25,9 @@
     <div class="spinner-wrapper">
 <div class="spinner"></div>
 </div>
+
     <main>
+      <h5>#Made with &#128153; in India</h5>
       <div class="container glass">
         <div class="dashboard">
           <!-- <div class="logo">
@@ -67,7 +69,9 @@
             </form>
           </div>
         </div>
+
       </div>
+
       <div class="social-links">
         <div class="social-photos">
          <a href="https://www.instagram.com/" target="_blank"><img src="f1.jpg"></a> 
@@ -78,6 +82,7 @@
         </div>
         
       </div>
+
     </main>
 
     <script>

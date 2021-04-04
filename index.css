@@ -152,3 +152,9 @@ left: 48%;
 .social-photos img:hover{
   margin-right: 25%;
 }
+/*#made in india*/
+main h5{
+      position: absolute;
+    z-index: 3;
+    bottom: -1px;
+}
