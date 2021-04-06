@@ -138,7 +138,7 @@ $image_use="attimages/".$image_val;
 </div>
 <br>
 <div>
-	<label for="avatar">Choose a profile picture:</label>
+  <label for="avatar">Choose a profile picture:</label>
 
 <input type="file" id="avatar" name="avatar" value=""accept="image/png, image/jpeg" />
    </div>
@@ -191,7 +191,7 @@ Current Address :
   </div>
   <div>
     <button type="submit" name ="submit" class="registerbtn btn btn-success">Register</button>   
-    <a href="card.html">Create Card</a>
+    <a class="btn btn-info" href="card.html">Create Card</a>
 </div>
 </form> 
          	          <!--MODAL-->
