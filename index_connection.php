@@ -25,10 +25,16 @@ if(isset($_POST['btn-login'])){
     $count = mysqli_num_rows($result);
     if($count==1)
     {
+      $sql0 = "UPDATE `employee_details` SET emp_check= '0'";
+      $r0=mysqli_query($con, $sql0);
       if($designation1=='employee'){
+        $sql1 = "UPDATE `employee_details` SET emp_check= '1' WHERE emp_id='$name' ";
+        $r1=mysqli_query($con, $sql1);
        echo "<script> window.location.assign('employee_page_index1.php'); </script>";
       }
       else if($designation1=='admin'){
+        $sql2 = "UPDATE `employee_details` SET emp_check= '1' WHERE emp_id='$name'";
+        $r2=mysqli_query($con, $sql2);
         echo "<script> window.location.assign('admin_page_index1.php'); </script>";
        }
     }
