@@ -146,7 +146,7 @@ $image_use="attimages/".$image_val;
 <div>
   <label for="avatar">Choose a profile picture:</label>
 
-<input type="file" id="avatar" name="avatar" value=""accept="image/png, image/jpeg" />
+<input type="file" id="avatar" name="avatar" value=""accept="image/png, image/jpeg image/jpg" required/>
    </div>
    <br>
 <div>  
