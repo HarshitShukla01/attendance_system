@@ -16,15 +16,19 @@
       <center>
       <div class="card text-dark bg-info" id="printable"style="width: 600px; margin-top: 50px;">
         <div class="card-header">
-          <center><img src="logo.png" width="100px" height="100px"></center>
+          <img src="logo.png" width="100px" height="100px" style="float: left">
+          <img src="agroup.jpg" width="300px" height="100px">
+          <img src="logo.png" width="100px" height="100px" style="float: right">
+
         </div>
         <div class="card-body">
-          <div><input id="qr-text" type="text" placeholder="Text to generate QR code"/></div>
-        
+          <div><input id="qr-text" type="text" placeholder="Enter ID" required/></div>
+        <br>
         <div>
-            <button class="qr-btn" onclick="generateQRCode()">Create QR Code</button>
+            <button type="submit" class=" btn btn-success qr-btn" onclick="generateQRCode()">Create QR Code</button>
         </div>
-        <p id="qr-result">This is deault QR code:</p>
+        <br>
+        <b><p id="qr-result">This is deault QR code:</p></b>
     <canvas id="qr-code"></canvas>
       </div>
     </div>
