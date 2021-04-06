@@ -1,14 +1,11 @@
 <?php
+
+
 $con = mysqli_connect("localhost", "root", "", "attendance");
-$sql5="SELECT emp_id FROM employee_details where emp_check ='1'";
-$r5=mysqli_query($con, $sql5);
-$emp_chk="";
-while($row1 = mysqli_fetch_array($r5)){
-  $emp_chk=$row1['emp_id'];
-}
-$sql_query="SELECT * FROM employee_details where emp_id ='$emp_chk'";
-$r1=mysqli_query($con, $sql_query);
-$id_use="";
+session_start();
+if(isset($_SESSION['emp_id'])){
+  $emp_id="11abc";
+$image="";
 $name_use="";
 $email_use="";
 $dseg_use="";
@@ -17,13 +14,13 @@ $address_use="";
 $dob_use="";
 $doj_use="";
 $gender_use="";
-$total_att="";
-$present_att="5";
-$absent_att="5";
-$leave_att="7";
-$image_val="";
-while($row = mysqli_fetch_array($r1)){
-  $id_use=$row['emp_id'];
+
+
+$sql_query="SELECT * FROM `employee_details` where `emp_id` ='$emp_id'";
+$r1=mysqli_query($con, $sql_query);
+while($row = mysqli_fetch_array($r1,MYSQLI_ASSOC)){
+  $image=$row['emp_imagelink'];
+  $emp_id=$row['emp_id'];
   $name_use=$row['emp_name'];
   $email_use=$row['emp_email'];
   $dseg_use=$row['emp_designation'];
@@ -32,13 +29,12 @@ while($row = mysqli_fetch_array($r1)){
   $dob_use=$row['emp_dob'];
   $doj_use=$row['emp_dateofjoining'];
   $gender_use=$row['emp_gender'];
-  $total_att=$row['total_workingdays'];
-  $present_att=$row['total_present'];
-  $absent_att=$row['total_absent'];
-  $leave_att=$row['total_leave'];
-$image_val=$row['emp_imagelink'];
+ 
+
+
 }
-$image_use="attimages/".$image_val;
+}
+
 ?>
 
 
@@ -75,15 +71,15 @@ $image_use="attimages/".$image_val;
       id of the employee-->
         <center>
            
-            <img src="<?php echo $image_use ?>" alt="$image_use ">
+        <img src="<?php echo $image ?>">
             <br><br>
-           <h3><?php echo $id_use ?></h3>
+           <h3><?php echo $emp_id?></h3>
            <h5><?php echo $name_use ?></h5>
           
           </center>
         
         <ul class="lisst-unstyled components" style="
-          margin-bottom: relative;
+          margin-bottom: relative; margin-bottom :77px;
           ">
           
          <!--Profile drop down menu with class active showing is default for every page like HOME PAGE-->
@@ -96,7 +92,7 @@ $image_use="attimages/".$image_val;
               </li>
               <!-- change password section -->
               <li>
-                <a href="#"><i class="fa fa-key" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Change Password</a>
+                <a href="admin_change_password.php"><i class="fa fa-key" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Change Password</a>
               </li>
             </ul>
             
@@ -104,13 +100,16 @@ $image_use="attimages/".$image_val;
           <!--Notification-->
           <li>
             
-            <a href="admin_notification.php" ><i class="fa fa-bell" style="font-size:18px;color:rgb(34, 130, 209)"></i>   Notification</a>
+            <a href="#" ><i class="fa fa-bell" style="font-size:18px;color:rgb(34, 130, 209)"></i>   Notification</a>
           </li>
           <!--Employee-->
           <li>
             <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-group" style="font-size:18px;color:rgb(34, 130, 209)"></i>    Employee</a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
               <!--Add Employee-->
+              <li>
+                <a href="admin_view_list.php"><i class="fa fa-list" style="font-size:18px;color:rgb(20, 45, 78)"></i>    View Employee List</a>
+              </li>
               <li>
                 <a href="admin_add_employee1.php"><i class="fa fa-user-plus" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Add</a>
               </li>
