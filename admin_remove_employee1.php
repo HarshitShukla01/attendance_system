@@ -1,7 +1,12 @@
 <?php
 $con = mysqli_connect("localhost", "root", "", "attendance");
-$sql_query="SELECT * FROM employee_details where emp_id ='11abc'";
-$r1=mysqli_query($con, $sql_query);
+$sql5="SELECT emp_id FROM employee_details where emp_check ='1'";
+$r5=mysqli_query($con, $sql5);
+$emp_chk="";
+while($row1 = mysqli_fetch_array($r5)){
+  $emp_chk=$row1['emp_id'];
+}
+$sql_query="SELECT * FROM employee_details where emp_id ='$emp_chk'";$r1=mysqli_query($con, $sql_query);
 $id_use="";
 $name_use="";
 $image_val="";

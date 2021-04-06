@@ -1,6 +1,12 @@
 <?php
 $con = mysqli_connect("localhost", "root", "", "attendance");
-$sql_query="SELECT * FROM employee_details where emp_id ='11abc'";
+$sql5="SELECT emp_id FROM employee_details where emp_check ='1'";
+$r5=mysqli_query($con, $sql5);
+$emp_chk="";
+while($row1 = mysqli_fetch_array($r5)){
+  $emp_chk=$row1['emp_id'];
+}
+$sql_query="SELECT * FROM employee_details where emp_id ='$emp_chk'";
 $r1=mysqli_query($con, $sql_query);
 $id_use="";
 $name_use="";
@@ -136,46 +142,20 @@ $image_use="attimages/".$image_val;
         <!--main page start-->
         <!--view attendance-->
         <div class="container" style="text-align: center;">
-          <h1 style="font-size: bold;">VIEW  ATTENDANCE</h1>
-          <div class="row" style="margin-top: 100px;">
-            <div class="col-sm-7" style="margin-top: 10px;">
-              <label style="font-size: 170%;">Choose date for view attendance :</label>
-            </div>
-            <div class="col-sm-5">
-              <input type="date" class="form-control" name="attendance_date" style="margin-top: 15px;">
-            </div>
+        <h1 style="font-size: bold;">VIEW ATTENDANCE</h1>
+        <div style="margin-top: 100px;">
+<center>          <form action="admin_view_attendance.php" method="post">
+          <div style="margin-top: 10px;">
+            <label style="font-size: 170%;">Choose date for view attendance :</label>
+            <br>
+            <input type="date" class="form-control" name="attendance_date" style="margin-top: 15px; width: 250px">
           </div>
-          <div class="div_submit">
-            <button id="div_submit_button">
-            <a class="nav-link" data-toggle="modal" data-target="#view-modal" style="cursor: pointer;">
-              SUBMIT
-            </a>
-            </button>
-          </div>
-          
-        </div>
-        <div class="modal" id="view-modal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title text-info">Attendance</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              
-              <!-- Modal body -->
-              <h4 id="textfile">hello</h4>
-              
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button type="print" class="btn btn-primary" onclick="printDiv('view-modal')">Print</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              </div>
-              
-            </div>
-          </div>
-        </div>
+        <div class="div_submit">
+        <button type="submit" name ="submit" class="registerbtn btn btn-success">submit</button> 
+      </div>
+      </form>
+    </center>
+      </div>
         
         <!--main page end-->
       </div>
