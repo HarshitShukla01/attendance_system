@@ -114,8 +114,8 @@ $image_use="attimages/".$image_val;
 				</div>
 				<div class="col-lg" id="second_col_big" style="margin-bottom: 10px; margin-top: 30px;">
 					<div class="col-lg" style="margin-bottom: 30px;">
-                        <div class="card row">
-						<div class="card-header" style="text-align: center;"><h4>PROFILE LOG</h4></div>
+                        <div class="card row" style="background-color:#9f67ef;" >
+						<div class="card-header" style="text-align: center;background-color:cornsilk;"><h4>PROFILE LOG</h4></div>
 						<div class="card-body">
 
 							<h5>Email &#10148; <?php echo $email_use ?></h5>
@@ -134,8 +134,8 @@ $image_use="attimages/".$image_val;
 					 </div>
 					</div>
 					<div class="col-lg">
-						<div class="card row" style="background-color:green">
-							<div class="card-header" style="text-align: center;"><h4>ATTENDANCE LOG</h4></div>
+						<div class="card row" style="background-color:#9f67ef;">
+							<div class="card-header" style="text-align: center; background-color:cornsilk;"><h4>ATTENDANCE LOG</h4></div>
 							<div class="card-body">
 								<h5>Total attendance &#10148; <?php echo $total_att?></h5>
 								<h5>Total present &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&#10148; <?php echo $present_att ?></h5>
@@ -270,13 +270,51 @@ $image_use="attimages/".$image_val;
 					
 					<!-- Modal Header -->
 					<div class="modal-header">
-						<h4 class="modal-title text-info">Services</h4>
+						<h4 class="modal-title text-info" >NOTIFICATION</h4>
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					
 					<!-- Modal body -->
 					<div class="modal-body">
-						Sorry for inconvenience..
+						 <?php
+                  $con = mysqli_connect("localhost", "root", "", "attendance");
+                  //leave_application
+                  $sql_query="SELECT * FROM leave_application where emp_id='$id_use'";
+                  $r1=mysqli_query($con, $sql_query);
+                  $leave_status="";
+                  $leave_from="";
+                  $leave_to="";
+                  $leave_reason="";?>
+						<table style="width:100%; background-color: lightblue; text-align: center;">
+                     <tr>
+                      <th style="font-size: 20px;">From date</th>
+                      <th style="font-size: 20px;">To date</th>
+                      <th style="font-size: 20px;">Reason</th>
+                      <th style="font-size: 20px;">Status</th>
+                    </tr>
+                    <?php 
+
+                    while($row2 = mysqli_fetch_array($r1)){
+                    $leave_from=$row2['from_date'];
+                    $leave_to=$row2['to_date'];
+                    $leave_reason=$row2['reason'];
+                    $leave_chk=$row2['status_val'];
+                    
+                    ?>
+                     <tr>
+                       <td><?php echo $leave_from?></td>
+                       <td><?php echo $leave_to?></td>
+                       <td><?php echo $leave_reason?></td>
+                       <td><?php 
+                        if($leave_chk=="None"||$leave_chk=="none")
+                    	{echo 'pending';}
+                      else
+                       echo $leave_chk?></td>
+                   </tr>
+                       <?php
+                        }
+                          ?>
+						</table>
 					</div>
 					
 					<!-- Modal footer -->
