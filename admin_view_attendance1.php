@@ -75,7 +75,7 @@ $image_use="attimages/".$image_val;
               </li>
               <!-- change password section -->
               <li>
-                <a href="#"><i class="fa fa-key" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Change Password</a>
+                <a class="nav-link" data-toggle="modal" data-target="#manage-password-modal" style="cursor: pointer;"><i class="fa fa-key" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Change Password</a>
               </li>
             </ul>
             
@@ -151,13 +151,49 @@ $image_use="attimages/".$image_val;
             <input type="date" class="form-control" name="attendance_date" style="margin-top: 15px; width: 250px">
           </div>
         <div class="div_submit">
-        <button type="submit" name ="submit" class="registerbtn btn btn-success">submit</button> 
+        <button type="submit" name ="submit" class="registerbtn btn btn-success" style="width: 10%;">SUBMIT</button> 
       </div>
       </form>
     </center>
       </div>
         
         <!--main page end-->
+      </div>
+    </div>
+    <div class="modal" id="manage-password-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title text-info">Password Manager</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <form action="admin_update_password.php" method="POST" style="width: 85%; margin: 0 auto; ">
+            <div class="form-group" style="margin-top: 5%;" >
+              <h5>Current Password</h5>
+              <input type="password" class="form-control" name="current_password" placeholder="Current Password">
+            </div>
+            <div class="form-group" >
+              <h5>New Password</h5>
+              <input type="password" class="form-control" placeholder="New Password" name="new_password">
+            </div>
+            <div class="form-group" >
+              <h5>Confirm New Password</h5>
+              <input type="password" class="form-control" placeholder="Confirm New Password" name="confirm_new_password">
+            </div>
+            <button type="submit" class="btn btn-primary" name="submit1">Submit</button>
+          </form>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+          
+        </div>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
