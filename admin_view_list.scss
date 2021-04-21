@@ -1,0 +1,147 @@
+@import "compass";
+@import "compass/css3";
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,900,800,700,600,500,300,200,100);
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    background-image: linear-gradient(to right, #f02281, #fe3e6c, #ff5a59, #ff7649, #ff903e, #fc9f37, #f6af32, #efbe32, #e8c82d, #e0d22b, #d5db2c, #c9e532);
+    font-weight: 100;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
+.main-div{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.center-div{
+    width: 90%;
+    height:80vh;
+   
+    padding: 20px 0 0 0;
+    box-shadow:0 10px 20px 0 rgba(0,0,0,0.3);
+}
+h1{
+    font-size:18px;
+    color:#000;
+    text-align:center;
+    margin-top:-20px;
+    margin-bottom:20px;
+}
+table{
+    
+    border-collapse:collapse;
+    background-color:rgb(255, 189, 189);
+    box-shadow:0 10px 20px 0 rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin:auto;
+}
+th,td{
+    border:1px solid #f2f2f2;
+    padding:8px 30px;
+    text-align:center;
+    color:grey;
+}
+th{
+    text-transform:uppercase;
+    font-weight:500;
+}
+td{
+    font-size:20px;
+    text-transform: capitalize;
+}
+/*.email-style{
+    font-size:14px;
+    color:grey;
+    display:inline-block;
+    background:#f2f2f2;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    line-height:30px;
+    padding: 0 14px;
+
+}*/
+.post-class{
+text-transform: uppercase;
+}
+
+/*.fa{
+    font-size:18px;
+}
+.fa-edit{
+    color:#63c76a;}
+
+.fa-trash{
+    color:#ff0000;
+}*/
+.btn {
+    background-color: #f44336;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    position:relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+.vertical-left {
+    text-align: center;
+    color:white;
+    padding: 15px 25px;
+    text-decoration: none;
+    background-color: #369ef4;
+    justify-content: center;
+    display: inline-block;
+    position:relative;
+    margin-top: 10px;
+    border: 1px solid white;
+  }
+/*a{
+    text-decoration:none;
+  /*  display:flex ;
+    justify-content: center;
+    display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #fff;
+}*/
+  
+.email-style{
+    font-size:14px;
+    color:grey;
+    display:inline-block;
+    background:#f2f2f2;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    line-height:30px;
+    padding: 0 14px;
+
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+  
+  .center-div,.main-div,table {
+      display:inline-table;
+      margin: 0%;
+      width:100%;
+      
+  }
+
+ 
+  
+}
