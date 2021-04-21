@@ -94,6 +94,10 @@ $image_use="attimages/".$image_val;
           <li>
             <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-group" style="font-size:18px;color:rgb(34, 130, 209)"></i>    Employee</a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
+               <!--View list -->
+              <li>
+                <a href="admin_view_list.php"><i class="fa fa-list" style="font-size:18px;color:rgb(20, 45, 78)"></i>    View Employee List</a>
+              </li>
               <!--Add Employee-->
               <li>
                 <a href="admin_add_employee1.php"><i class="fa fa-user-plus" style="font-size:18px;color:rgb(20, 45, 78)"></i>    Add</a>
