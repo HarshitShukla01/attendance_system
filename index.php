@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   
-  <title>SideBar Menu</title>
+  <title>Attendance Management System </title>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
