@@ -67,7 +67,7 @@ mysqli_close($conn);
 <br>
 <div>
       <button type="button" onclick="window.print();"class="btn btn-primary">Print</button>
-        <a href="admin_view_employee1.php"><button type="button" class="btn btn-secondary">Go Back</button></a>
+        <a href="admin_view_attendance1.php"><button type="button" class="btn btn-secondary">Go Back</button></a>
       </div>
 </body>
 </center>
