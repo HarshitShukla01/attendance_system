@@ -62,7 +62,7 @@ $image_use="attimages/".$image_val;
         <img src="<?php echo $image_use ?>" alt="$image_use ">
         <br><br>
         <h3><?php echo $id_use ?></h3>
-        <h5><?php echo $id_use ?></h5>
+        <h5><?php echo $name_use ?></h5>
         
         </center>
         
