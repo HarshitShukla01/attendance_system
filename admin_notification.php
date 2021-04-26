@@ -191,13 +191,55 @@ $image_use="attimages/".$image_val;
                        <!-- <form action="admin_take_attendance.php" method="POST" > -->
                          <button class=" bo-rad form-control col-6 bg-success" name="accept" style="float: left; font-weight: bold;color:white;">&#10004;</button>
                          <button class="bo-rad form-control col-6 bg-danger" name="deny" style="float: right; color:white;">&#10008;</button>
-                        <!-- </form> -->
+                        </form>
                        </td>
                      </tr>
+                     
                      <?php
                   }
+
                 ?>
               </table>
+              <?php
+               $to = ""; 
+               $subject = "";      
+              if(isset($_POST['accept'])) {
+                  $sql5 = "UPDATE `leave_application` SET status_val = 'accept' WHERE emp_id='$leave_id' AND emp_name='$leave_name' AND from_date='$leave_from' AND to_date='$leave_to'";
+                              $r5=mysqli_query($con, $sql5);
+                              $sql8="SELECT * from `employee_details` where emp_id = '$leave_id'";
+                              $r8=mysqli_query($con,$sql8);
+                              while($row8 = mysqli_fetch_array($r8))
+                            {
+                                $to=$row8['emp_email'];
+                            }
+                            $subject="Your application is accepted";
+              }
+              else if(isset($_POST['deny'])) {
+                $sql6 = "UPDATE `leave_application` SET status_val = 'deny' WHERE emp_id='$leave_id' AND emp_name='$leave_name' AND from_date='$leave_from' AND to_date='$leave_to'";
+                              $r6=mysqli_query($con, $sql6);
+                              $sql9="SELECT * from `employee_details` where emp_id = '$leave_id'";
+                              $r9=mysqli_query($con,$sql9);
+                              while($row9 = mysqli_fetch_array($r9))
+                            {
+                                $to=$row9['emp_email'];
+                            }
+                            $subject="Your application is rejected";
+              }
+                
+                $txt = "Archer Group";
+                $headers = "From: archergroup44@gmail.com";
+
+                if(mail($to,$subject,$txt,$headers))
+                {
+                    echo "Successfully sent..";
+                }
+                // else
+                // {
+                //     echo "Failed...";
+                // }
+        
+                echo "<script>header('Refresh:0')</script>";
+    ?>
              </div>
            </div>
         
